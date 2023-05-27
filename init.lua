@@ -131,10 +131,11 @@ require('lazy').setup({
 
   {
     -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "shaunsingh/nord.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'nord'
     end,
   },
 
@@ -145,7 +146,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'nord',
         component_separators = '|',
         section_separators = '',
       },
@@ -513,12 +514,9 @@ cmp.setup {
   },
 }
 
---configure theme for navarasu/onedark
-require('onedark').setup {
-    style = 'deep'
-}
-require('onedark').load()
-
+--require('nord').load()
+-- disable vim mouse so clipboard is accessible
 vim.opt.mouse = ""
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
