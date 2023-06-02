@@ -131,11 +131,12 @@ require('lazy').setup({
 
   {
     -- Theme inspired by Atom
-    "shaunsingh/nord.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'nord'
+      vim.cmd.colorscheme 'catppuccin-mocha'
       vim.api.nvim_set_hl(0, "Normal", {bg = "none"}) -- set transparent background
       vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"}) -- set transparent background
     end,
