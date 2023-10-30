@@ -235,6 +235,9 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
+-- activate relative line numbering
+vim.wo.relativenumber = true
+
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeout = true
