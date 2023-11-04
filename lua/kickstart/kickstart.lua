@@ -249,6 +249,10 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+vim.api.nvim_set_hl(0, 'LineNr', {fg = "#0ad3f2", italic = true})
+
+
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
