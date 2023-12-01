@@ -154,11 +154,8 @@ require('lazy').setup({
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
+    main = "ibl",
     opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
     },
   },
 
@@ -237,7 +234,6 @@ vim.wo.signcolumn = 'yes'
 
 -- activate relative line numbering
 vim.wo.relativenumber = true
-
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeout = true
@@ -285,6 +281,13 @@ require('telescope').setup {
       },
     },
   },
+}
+ -- enable indent blankline (semi transparent stripes for indentation)
+require("ibl").setup{
+       debounce = 100,
+       indent = { char = "|", highlight = "Conceal"},
+       whitespace = { highlight =  "Conceal"},
+       enabled = true
 }
 
 -- Enable telescope fzf native, if installed
@@ -515,6 +518,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
