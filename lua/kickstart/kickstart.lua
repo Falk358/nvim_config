@@ -151,13 +151,6 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    opts = {
-    },
-  },
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -280,13 +273,6 @@ require('telescope').setup {
       },
     },
   },
-}
- -- enable indent blankline (semi transparent stripes for indentation)
-require("indent_blankline").setup{
-       debounce = 100,
-       indent = { char = "|", highlight = "Conceal"},
-       whitespace = { highlight =  "Conceal"},
-       enabled = true
 }
 
 -- Enable telescope fzf native, if installed
