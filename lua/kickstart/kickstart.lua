@@ -144,7 +144,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'nord',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -154,7 +154,6 @@ require('lazy').setup({
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    main = "ibl",
     opts = {
     },
   },
@@ -283,7 +282,7 @@ require('telescope').setup {
   },
 }
  -- enable indent blankline (semi transparent stripes for indentation)
-require("ibl").setup{
+require("indent_blankline").setup{
        debounce = 100,
        indent = { char = "|", highlight = "Conceal"},
        whitespace = { highlight =  "Conceal"},
