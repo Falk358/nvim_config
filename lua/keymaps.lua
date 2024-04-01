@@ -11,7 +11,11 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 -- keeps cursor centered when scrolling through search matches
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- show lsp code actions; overrides value from kickstart to also include visual mode
+vim.keymap.set({'v', 'n'}, '<Leader>ca', vim.lsp.buf.code_action, {desc = "[C]ode [A]ction"})
 -- copy to system clipboard 
 --vim.keymap.set("n","<leader>y", "\"+y")
 --vim.keymap.set("v","<leader>y", "\"+y")
 --vim.keymap.set("n","<leader>Y", "\"+Y")
+
