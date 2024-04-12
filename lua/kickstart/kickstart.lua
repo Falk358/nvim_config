@@ -1,4 +1,3 @@
-
 --[[
 
 =====================================================================
@@ -73,11 +72,6 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- sql implementation and autocomplete
-  'tpope/vim-dadbod',
-  'kristijanhusak/vim-dadbod-completion',
-  'kristijanhusak/vim-dadbod-ui',
-
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -91,7 +85,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = "legacy", event = "LspAttach", opts = {} },
+      { 'j-hui/fidget.nvim',       tag = "legacy", event = "LspAttach", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -113,9 +107,29 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
+  -- autoformat plugin
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+    config = function()
+      -- autoformat for python using black formatter and isort for sorting imports
+      require("conform").setup({
+        formatters_by_ft = {
+          python = { "isort", "black" },
+          rust = { "rustfmt" }
+        },
+      })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function(args)
+          require("conform").format({ bufnr = args.buf })
+        end,
+      })
+    end,
+  },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',          opts = {} },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -152,7 +166,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',         opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -214,7 +228,7 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 
--- write spaces when typing tab 
+-- write spaces when typing tab
 vim.o.expandtab = true
 
 -- Case insensitive searching UNLESS /C or capital in search
@@ -237,7 +251,7 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.api.nvim_set_hl(0, 'LineNr', {fg = "#0ad3f2", italic = true})
+vim.api.nvim_set_hl(0, 'LineNr', { fg = "#0ad3f2", italic = true })
 
 
 
@@ -420,7 +434,7 @@ end
 local servers = {
   -- clangd = {},
   -- gopls = {},
-   pyright = {},
+  pyright = {},
   rust_analyzer = {},
   -- tsserver = {},
 
@@ -503,6 +517,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
 
 
 
