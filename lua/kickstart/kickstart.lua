@@ -120,7 +120,7 @@ require('lazy').setup({
         },
       })
       vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
+        pattern = {"*.py", "*.rs"},
         callback = function(args)
           require("conform").format({ bufnr = args.buf })
         end,
